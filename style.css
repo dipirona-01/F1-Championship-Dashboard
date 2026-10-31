@@ -5,17 +5,26 @@
 
     /* Cores da tabela */
     --cor-linha-even: rgb(22, 26, 32);
+    --cor-linha-even-hover: rgb(43, 50, 58);
     --cor-linha-odd: rgb(8, 13, 19);
+    --cor-linha-odd-hover: rgb(30, 50, 73) ;
     --cor-cabecalho: rgb(179, 189, 207);
 
     /* Cores de destaque */
-    --cor-vermelho: rgb(216, 0, 0);
-    --cor-lider: red;
+    --cor-destaque-lider: red;
     --cor-equipe: aqua;
 
     /* Textos */
     --cor-texto: white;
     --cor-texto-secundario: rgb(172, 174, 177);
+
+    /* Sombra */
+    --sombra-tabela : rgb(126, 126, 126);
+    --sombra-header: rgba(173, 173, 173, 0.377);
+
+    /* Parte do Lider */
+    --cor-lider: rgba(4, 204, 204, 0.575);
+
 }
 
 
@@ -29,7 +38,7 @@
 body {
     font-family: arial, sans-serif;
     background-color: var(--cor-fundo);
-    color : white;
+    color : var(--cor-texto);
 }
 
 /*Parte da Navegação e Titulo*/
@@ -40,9 +49,9 @@ header {
     justify-content: space-between;
     margin: 10px;
     padding: 10px;
-    color: white;
+    color: var(--cor-texto);
     border-radius: 10px;
-    box-shadow: 0px 0px 5px rgba(173, 173, 173, 0.377);
+    box-shadow: 0px 0px 5px var(--sombra-header);
 }
 
 ul {
@@ -56,7 +65,7 @@ li {
 }
 
 li:hover {
-    color: var(--cor-lider);
+    color: var(--cor-destaque-lider);
     border-radius: 10px; 
     cursor: pointer;
 }
@@ -72,11 +81,11 @@ li:hover {
 /* Parte do Lider do Campeonato */
 
 section.Lider {
-    background-color: rgba(4, 204, 204, 0.575);
+    background-color: var(--cor-lider) ;
 }
 
 h2  {
-    font-size: 1em;
+    font-size: 1.2em;
     color: gray;
 }
 
@@ -105,7 +114,7 @@ p.nome {
 
 section {
     width: 95%;
-    background-color: rgb(8, 13, 19);
+    background-color: var(--cor-section);
     padding: 15px;
     border-radius: 10px;
     margin: 10px auto;
@@ -116,36 +125,62 @@ table {
     border-collapse: collapse;
 }
 
+tr{
+    transition: 0.3s;
+}
+
 tbody > tr:nth-child(odd) {
     background-color: var(--cor-linha-odd);
+}
+
+tbody > tr:nth-child(odd):hover {
+    background-color: var(--cor-linha-odd-hover) ;
+    cursor: pointer;
 }
 
 tbody > tr:nth-child(even) {
     background-color: var(--cor-linha-even);
 }
 
+tbody > tr:nth-child(even):hover {
+    background-color: var(--cor-linha-even-hover) ;
+    cursor: pointer;
+}
+
 p#tabela {
     padding: 15px;
     background-color: var(--cor-section);
-    color: rgb(172, 174, 177);
+    color: var(--cor-texto-secundario);
     font-size: 1.2em;
     font-weight: bold;
 }
 
 td {
     padding: 10px;
-    box-shadow: 0px 0px 2px rgb(126, 126, 126);
-    color: white;
+    box-shadow: 0px 0px 2px var(--sombra-tabela);
+    color: var(--cor-texto);
     font-weight: 400;
 }
 
 td#Lider {
-    color: var(--cor-lider);
+    color: var(--cor-destaque-lider);
 }
 
 th {
     padding: 10px;
-    box-shadow: 0px 0px 1px rgb(126, 126, 126);
-    background-color: rgb(8, 13, 19);
+    box-shadow: 0px 0px 1px var(--sombra-tabela);
+    background-color: var(--cor-section);
     color: var(--cor-cabecalho);
+}
+
+@media (max-width: 600px) {
+    /* Regras para telas menores */
+    header{
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+    }
+    li {
+        padding: 10px 5px 10px 5px;
+    }
 }
