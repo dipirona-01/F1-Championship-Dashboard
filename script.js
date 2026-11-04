@@ -108,7 +108,7 @@ let pilotos = [
     {
         nome: 'Kimi Antonelli',
         equipe: 'Mercedes',
-        pontos: 365
+        pontos: 380
     }
 ]
 pilotos.sort(function(a, b) {
@@ -138,6 +138,8 @@ for (let i = 0; i < pilotos.length; i++) {
     posicao.style.color = '#949393';
     if (i === 0) {
         posicao.style.color = 'gold';
+        pontos.style.color = 'gold';
+        
     } else if (i === 1) {
         posicao.style.color = 'silver';
     } else if (i === 2) {
