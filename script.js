@@ -135,4 +135,12 @@ for (let i = 0; i < pilotos.length; i++) {
     linha.appendChild(equipe);
     linha.appendChild(pontos);
     tabela.appendChild(linha);
+    posicao.style.color = '#949393';
+    if (i === 0) {
+        posicao.style.color = 'gold';
+    } else if (i === 1) {
+        posicao.style.color = 'silver';
+    } else if (i === 2) {
+        posicao.style.color = '#CD7F32';
+    }
 }
