@@ -115,7 +115,24 @@ pilotos.sort(function(a, b) {
     return b.pontos - a.pontos;
 });
 
+let tabela = document.getElementById('classificacao');
+console.log(tabela);
+
 for (let i = 0; i < pilotos.length; i++) {
-    console.log(pilotos[i].nome, pilotos[i].pontos);
+    console.log(i + 1, pilotos[i].nome, pilotos[i].pontos);
     
+    let linha = document.createElement('tr');
+    let posicao = document.createElement('td');
+    posicao.textContent = i + 1;
+    let nome = document.createElement('td');
+    nome.textContent = pilotos[i].nome;
+    let equipe = document.createElement('td');
+    equipe.textContent = pilotos[i].equipe;
+    let pontos = document.createElement('td');
+    pontos.textContent = pilotos[i].pontos;
+    linha.appendChild(posicao);
+    linha.appendChild(nome);
+    linha.appendChild(equipe);
+    linha.appendChild(pontos);
+    tabela.appendChild(linha);
 }
