@@ -94,14 +94,14 @@ p#team {
     font-size: 1.1em;
 }
 
-p.classificacao {
+p.classificacao-lider-nome {
     font-size: 2em;
     font-weight: bolder;
     margin: 5px 0px 5px ;
 }
-p.nome {
-    font-size: 1.5em;
-    font-weight: bolder;
+p.classificacao-lider-equipe {
+    font-size: 1.1em;
+    color: aqua;
     margin: 5px 0px 5px ;
 }
 
@@ -111,6 +111,50 @@ p.nome {
 
 
 /* Parte da Tabela */
+
+p.mercedes {
+    color: aqua;
+}
+
+p.ferrari {
+    color: #E10600;
+}
+
+p.audi {
+    color: #A8A8A8;
+}
+
+p.redbull {
+    color: #000330;
+}
+
+p.mclaren {
+    color: #FF8700;
+}
+
+p.alpine {
+    color: #0092FF;
+}
+
+p.astonmartin {
+    color: #00461d;
+}
+
+p.williams {
+    color: #003eb9;
+}
+
+p.caddillac {
+    color: #7a7a7a;
+}
+
+p.haas {
+    color: #c90f09;
+}
+
+p.racingbulls {
+    color: #004cbe;
+}
 
 section {
     width: 95%;

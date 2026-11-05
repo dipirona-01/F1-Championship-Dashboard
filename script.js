@@ -106,7 +106,7 @@ let pilotos = [
         pontos: 0
     },
     {
-        nome: 'Kimi Antonelli',
+        nome: 'Andrea Kimi Antonelli',
         equipe: 'Mercedes',
         pontos: 380
     }
@@ -145,4 +145,41 @@ for (let i = 0; i < pilotos.length; i++) {
     } else if (i === 2) {
         posicao.style.color = '#CD7F32';
     }
+
 }
+
+let lider = pilotos[0];
+let liderNome = document.getElementById('classificacao-lider-nome');
+liderNome.textContent = lider.nome;
+liderNome.style.fontSize = '2em';
+liderNome.style.fontWeight = 'bolder';
+let liderEquipe = document.getElementById('classificacao-lider-equipe');
+liderEquipe.textContent = lider.equipe;
+liderEquipe.style.fontSize = '1.1em';
+liderEquipe.classList.add('classificacao-lider-equipe');
+if (lider.equipe === 'Mercedes') {
+    liderEquipe.classList.add('mercedes');
+} else if (lider.equipe === 'Ferrari') {
+    liderEquipe.classList.add('ferrari');
+} else if (lider.equipe === 'Audi') {
+    liderEquipe.classList.add('audi');
+} else if (lider.equipe === 'Red Bull') {
+    liderEquipe.classList.add('redbull');
+} else if (lider.equipe === 'McLaren') {
+    liderEquipe.classList.add('mclaren');
+} else if (lider.equipe === 'Alpine') {
+    liderEquipe.classList.add('alpine');
+} else if (lider.equipe === 'Aston Martin') {
+    liderEquipe.classList.add('astonmartin');
+} else if (lider.equipe === 'Williams') {
+    liderEquipe.classList.add('williams');
+} else if (lider.equipe === 'Cadillac') {
+    liderEquipe.classList.add('cadillac');
+} else if (lider.equipe === 'Haas') {
+    liderEquipe.classList.add('haas');
+} else if (lider.equipe === 'Racing Bulls') {
+    liderEquipe.classList.add('racingbulls');
+}
+let liderPontos = document.getElementById('classificacao-lider-pontos');
+liderPontos.style.fontSize = '1.1em';
+liderPontos.textContent = lider.pontos + ' Pontos';
