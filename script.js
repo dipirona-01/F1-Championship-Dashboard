@@ -120,17 +120,52 @@ pilotos.sort(function(a, b) {
 let tabela = document.getElementById('classificacao');
 console.log(tabela);
 
+// Exibir o líder da classificação
+let lider = pilotos[0];
+let liderNome = document.getElementById('classificacao-lider-nome');
+liderNome.textContent = lider.nome;
+liderNome.style.fontSize = '2em';
+liderNome.style.fontWeight = 'bolder';
+let liderEquipe = document.getElementById('classificacao-lider-equipe');
+liderEquipe.textContent = lider.equipe;
+liderEquipe.style.fontSize = '1.1em';
+liderEquipe.classList.add('classificacao-lider-equipe');
+
+
+// Cor da equipe do lider
+let coresEquipes = {
+    'Mercedes': 'aqua',
+    'Ferrari': '#E10600',
+    'Audi': '#A8A8A8',
+    'Red Bull': '#000330',
+    'McLaren': '#FF8700',
+    'Alpine': '#0092FF',
+    'Aston Martin': '#00461d',
+    'Williams': '#003eb9',
+    'Cadillac': '#7a7a7a',
+    'Haas': '#c90f09',
+    'Racing Bulls': '#004cbe'
+};
+
+liderEquipe.style.color = coresEquipes[lider.equipe] || 'black';
+
 // Preencher a tabela com os pilotos e suas pontuações
 for (let i = 0; i < pilotos.length; i++) {
     console.log(i + 1, pilotos[i].nome, pilotos[i].pontos);
     
     let linha = document.createElement('tr');
+
     let posicao = document.createElement('td');
     posicao.textContent = i + 1;
+
     let nome = document.createElement('td');
     nome.textContent = pilotos[i].nome;
+    nome.style.fontWeight = 'bold';
+    nome.style.color = '#C5C5C5';
+
     let equipe = document.createElement('td');
     equipe.textContent = pilotos[i].equipe;
+    equipe.style.color = coresEquipes[pilotos[i].equipe] || 'black';
     let pontos = document.createElement('td');
     pontos.textContent = pilotos[i].pontos;
     linha.appendChild(posicao);
@@ -142,7 +177,7 @@ for (let i = 0; i < pilotos.length; i++) {
     if (i === 0) {
         posicao.style.color = 'gold';
         pontos.style.color = 'gold';
-        
+        equipe.innerHTML = `🏆 ${pilotos[i].equipe}`;
     } else if (i === 1) {
         posicao.style.color = 'silver';
     } else if (i === 2) {
@@ -150,18 +185,6 @@ for (let i = 0; i < pilotos.length; i++) {
     }
 
 }
-
-
-// Exibir o líder da classificação
-let lider = pilotos[0];
-let liderNome = document.getElementById('classificacao-lider-nome');
-liderNome.textContent = lider.nome;
-liderNome.style.fontSize = '2em';
-liderNome.style.fontWeight = 'bolder';
-let liderEquipe = document.getElementById('classificacao-lider-equipe');
-liderEquipe.textContent = lider.equipe;
-liderEquipe.style.fontSize = '1.1em';
-liderEquipe.classList.add('classificacao-lider-equipe');
 
 // Modo raiz de colocar cor da equipe do lider
 /*
@@ -189,24 +212,6 @@ if (lider.equipe === 'Mercedes') {
     liderEquipe.classList.add('racingbulls');
 }
 */
-
-// Cor da equipe do lider
-let coresEquipes = {
-    'Mercedes': 'aqua',
-    'Ferrari': '#E10600',
-    'Audi': '#A8A8A8',
-    'Red Bull': '#000330',
-    'McLaren': '#FF8700',
-    'Alpine': '#0092FF',
-    'Aston Martin': '#00461d',
-    'Williams': '#003eb9',
-    'Cadillac': '#7a7a7a',
-    'Haas': '#c90f09',
-    'Racing Bulls': '#004cbe'
-};
-
-liderEquipe.style.color = coresEquipes[lider.equipe] || 'black';
-
 
 // Pontuação do líder 
 let liderPontos = document.getElementById('classificacao-lider-pontos');
