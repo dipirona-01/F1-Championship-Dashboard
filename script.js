@@ -1,4 +1,4 @@
-
+// Lista de pilotos com suas respectivas equipes e pontuações
 let pilotos = [
     {
         nome: 'Lewis Hamilton',
@@ -111,6 +111,8 @@ let pilotos = [
         pontos: 380
     }
 ]
+
+// Ordenar os pilotos por pontos em ordem decrescente
 pilotos.sort(function(a, b) {
     return b.pontos - a.pontos;
 });
@@ -118,6 +120,7 @@ pilotos.sort(function(a, b) {
 let tabela = document.getElementById('classificacao');
 console.log(tabela);
 
+// Preencher a tabela com os pilotos e suas pontuações
 for (let i = 0; i < pilotos.length; i++) {
     console.log(i + 1, pilotos[i].nome, pilotos[i].pontos);
     
@@ -148,6 +151,8 @@ for (let i = 0; i < pilotos.length; i++) {
 
 }
 
+
+// Exibir o líder da classificação
 let lider = pilotos[0];
 let liderNome = document.getElementById('classificacao-lider-nome');
 liderNome.textContent = lider.nome;
@@ -157,6 +162,9 @@ let liderEquipe = document.getElementById('classificacao-lider-equipe');
 liderEquipe.textContent = lider.equipe;
 liderEquipe.style.fontSize = '1.1em';
 liderEquipe.classList.add('classificacao-lider-equipe');
+
+// Modo raiz de colocar cor da equipe do lider
+/*
 if (lider.equipe === 'Mercedes') {
     liderEquipe.classList.add('mercedes');
 } else if (lider.equipe === 'Ferrari') {
@@ -180,6 +188,27 @@ if (lider.equipe === 'Mercedes') {
 } else if (lider.equipe === 'Racing Bulls') {
     liderEquipe.classList.add('racingbulls');
 }
+*/
+
+// Cor da equipe do lider
+let coresEquipes = {
+    'Mercedes': 'aqua',
+    'Ferrari': '#E10600',
+    'Audi': '#A8A8A8',
+    'Red Bull': '#000330',
+    'McLaren': '#FF8700',
+    'Alpine': '#0092FF',
+    'Aston Martin': '#00461d',
+    'Williams': '#003eb9',
+    'Cadillac': '#7a7a7a',
+    'Haas': '#c90f09',
+    'Racing Bulls': '#004cbe'
+};
+
+liderEquipe.style.color = coresEquipes[lider.equipe] || 'black';
+
+
+// Pontuação do líder 
 let liderPontos = document.getElementById('classificacao-lider-pontos');
 liderPontos.style.fontSize = '1.1em';
 liderPontos.textContent = lider.pontos + ' Pontos';
